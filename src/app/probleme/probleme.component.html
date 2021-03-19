@@ -1,11 +1,44 @@
-<div class="container">
-    <div class="card">
-    <div class="card-header text-white bg-secondary">
-    Déclarer un problème
-    </div>
+<br/>
+<div class='container'>
+<div class="card">
+    <h5 class="card-header text-white bg-secondary mb-3">Déclarer un problème</h5>
     <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> </div>
-    <div class="card-footer">
-    </div> </div>
+      <h5 class="card-title">Veuillez renseigner les zones suivantes et soumettre votre demande</h5>
+      <div class="card-text">
+        <form class="form-horizontal"
+        novalidate
+        (ngSubmit)="save()"
+        [formGroup]="problemeForm">
+        <!-- Zone de texte PRENOM -->
+            <div class="form-group row">
+              <label for="problemeId" class="col-md-2 col-form-label text-right">Prénom :
+              </label>
+              <div class="col-md-10">
+                <input class="form-control" 
+                id="problemeId" 
+                type="text"
+                placeholder="Votre prénom ici (obligatoire)"
+                formControlName="probleme" 
+                [ngClass]="{'is-invalid': (problemeForm.get('probleme').touched ||
+                problemeForm.get('probleme').dirty) &&
+                !problemeForm.get('probleme').valid,
+                'is-valid': (problemeForm.get('probleme').touched ||
+                problemeForm.get('probleme').dirty) &&
+                problemeForm.get('probleme').valid }"
+                />
+                <span class="form-text" *ngIf="(problemeForm.get('probleme').touched || 
+                    problemeForm.get('probleme').dirty) &&
+                    problemeForm.get('probleme').errors">
+                    <span *ngIf="problemeForm.get('probleme').errors.minlength">
+                        <small class="text-muted">
+                            Indiquer au moins 3 caractères.
+                         </small>
+                    </span>
+                </span>
+              </div>
+            </div>
+          </form>
+      </div>
     </div>
+  </div>
+</div>
