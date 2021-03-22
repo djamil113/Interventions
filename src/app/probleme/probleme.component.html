@@ -34,6 +34,11 @@
                             Indiquer au moins 3 caractères.
                          </small>
                     </span>
+                    <span *ngIf="problemeForm.get('probleme').errors.required">
+                      <small class="text-muted">
+                          Merci de saisir votre prénom.
+                       </small>
+                  </span>
                 </span>
               </div>
             </div>
