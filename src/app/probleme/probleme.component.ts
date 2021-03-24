@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ZonesValidator } from '../shared/longueur-minimum/longueur-minimum.component';
+import { ZonesValidator } from '../shared/longueur-minimum.component';
 
 @Component({
   selector: 'inter-probleme',
@@ -21,4 +21,5 @@ export class ProblemeComponent implements OnInit {
   save(): void {
     
   }
+
 }
