@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { emailMatcherValidator } from '../shared/email-matcher.component';
 import { ZonesValidator } from '../shared/longueur-minimum.component';
 import { ITypeCategorie } from './categorie';
 import { CategorieService } from './categorie.service';
@@ -35,28 +36,37 @@ export class ProblemeComponent implements OnInit {
                error => this.errorMessage = <any>error);  
   }
 
-  //appliquerNotifications(typeNotifications: string): void {
-  appliquerNotifications(): void {
+  appliquerNotifications(typeNotifications: string): void {
     const telephoneControl = this.problemeForm.get('telephone');   
     const courrielControl = this.problemeForm.get('courrielGroup.courriel');   
-    const confirmerCourrielControl = this.problemeForm.get('courrielGroup.confirmerCourriel');   
+    const confirmerCourrielControl = this.problemeForm.get('courrielGroup.confirmerCourriel');
+    const courrielGroupControl = this.problemeForm.get('courrielGroup')
 
     // Tous remettre à zéro
     telephoneControl.clearValidators();
-    telephoneControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invaldides
+    telephoneControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invalides
     telephoneControl.disable();
 
     courrielControl.clearValidators();
-    courrielControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invaldides
+    courrielControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invalides
     courrielControl.disable();
 
     confirmerCourrielControl.clearValidators();
-    confirmerCourrielControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invaldides
+    confirmerCourrielControl.reset();  // Pour enlever les messages d'erreur si le controle contenait des données invalides
     confirmerCourrielControl.disable();
 
+    if (typeNotifications === 'courriel'){
+      courrielControl.setValidators([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]);
+      courrielControl.enable();
+      confirmerCourrielControl.setValidators([Validators.required]);
+      confirmerCourrielControl.enable();
+      courrielGroupControl.setValidators([Validators.compose([emailMatcherValidator.courrielDifferents()])])
+    }
+    
     telephoneControl.updateValueAndValidity();  
     courrielControl.updateValueAndValidity(); 
     confirmerCourrielControl.updateValueAndValidity(); 
+    courrielGroupControl.updateValueAndValidity();
   }
 
   save(): void {
