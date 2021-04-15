@@ -40,7 +40,7 @@ export class ProblemeComponent implements OnInit {
     const telephoneControl = this.problemeForm.get('telephone');   
     const courrielControl = this.problemeForm.get('courrielGroup.courriel');   
     const confirmerCourrielControl = this.problemeForm.get('courrielGroup.confirmerCourriel');
-    const courrielGroupControl = this.problemeForm.get('courrielGroup')
+    const courrielGroupControl = this.problemeForm.get('courrielGroup');
 
     // Tous remettre à zéro
     telephoneControl.clearValidators();
@@ -60,7 +60,12 @@ export class ProblemeComponent implements OnInit {
       courrielControl.enable();
       confirmerCourrielControl.setValidators([Validators.required]);
       confirmerCourrielControl.enable();
-      courrielGroupControl.setValidators([Validators.compose([emailMatcherValidator.courrielDifferents()])])
+      courrielGroupControl.setValidators([Validators.compose([emailMatcherValidator.courrielDifferents()])]);
+    }
+
+    if (typeNotifications === 'telephone'){
+      telephoneControl.enable();
+      telephoneControl.setValidators([Validators.required, Validators.pattern('[0-9]+'), Validators.minLength(10), Validators.maxLength(10)]);
     }
     
     telephoneControl.updateValueAndValidity();  

@@ -47,7 +47,7 @@ describe('Zones Validator', () => {
     });
 
     // test unitaire #11
-    it('# 11 | Une phrase avec 2 espaces et 1 caractère est invalide', () =>{
+    it('#11 | Une phrase avec 2 espaces et 1 caractère est invalide', () =>{
         // Préparer une variable pour manipuler le validateur
         let validator = ZonesValidator.longueurMinimum(3);
         let control = {value: '  x'};
