@@ -32,21 +32,21 @@ describe('ProblemeComponent', () => {
   it('#1 | Zone PRÉNOM invalide avec 2 caractères', () => { 
     let zone = component.problemeForm.controls['probleme'];
     zone.setValue('a'.repeat(2));
-    expect(zone.invalid).toBeTruthy();
+    expect(zone.invalid).toBeTrue();
   });
 
   // test unitaire #2
   it('#2 | Zone PRÉNOM valide avec 3 caractères', () => {
     let zone = component.problemeForm.controls['probleme'];
     zone.setValue('a'.repeat(3));
-    expect(zone.valid).toBeTruthy();
+    expect(zone.valid).toBeTrue();
   });
 
   // test unitaire #3
   it('#3 | Zone PRÉNOM valide avec 200 caractères', () => {
     let zone = component.problemeForm.controls['probleme'];
     zone.setValue('a'.repeat(200));
-    expect(zone.valid).toBeTruthy();
+    expect(zone.valid).toBeTrue();
   });
 
   // test unitaire #4
@@ -61,14 +61,14 @@ describe('ProblemeComponent', () => {
   it('#5 | Zone PRÉNOM invalide avec 10 espaces', () => {
     let zone = component.problemeForm.controls['probleme'];
     zone.setValue(' '.repeat(10));
-    expect(zone.valid).toBeFalse();
+    expect(zone.invalid).toBeTrue();
   });
 
   // test unitaire #6
   it('#6 | Zone PRÉNOM invalide avec 2 espaces et 1 caractère', () => {
     let zone = component.problemeForm.controls['probleme'];
     zone.setValue(' '.repeat(2) + 'a'.repeat(1));
-    expect(zone.valid).toBeFalse();
+    expect(zone.invalid).toBeTrue();
   });
 
   // test unitaire #15
@@ -76,7 +76,7 @@ describe('ProblemeComponent', () => {
     component.appliquerNotifications('');
 
     let zone = component.problemeForm.get('telephone');
-    expect(zone.status).toEqual('DISABLED');
+    expect(zone.disabled).toBeTrue();
   });
 
   // test unitaire #16
@@ -92,7 +92,7 @@ describe('ProblemeComponent', () => {
     component.appliquerNotifications('');
 
     let zone = component.problemeForm.get('courrielGroup.courriel');
-    expect(zone.status).toEqual('DISABLED');
+    expect(zone.disabled).toBeTrue();
   });
 
   // test unitaire #18
@@ -100,7 +100,7 @@ describe('ProblemeComponent', () => {
     component.appliquerNotifications('');
 
     let zone = component.problemeForm.get('courrielGroup.confirmerCourriel');
-    expect(zone.status).toEqual('DISABLED');
+    expect(zone.disabled).toBeTrue();
   });
 
   // test unitaire #19
@@ -108,7 +108,7 @@ describe('ProblemeComponent', () => {
     component.appliquerNotifications('courriel');
 
     let zone = component.problemeForm.get('telephone');
-    expect(zone.status).toEqual('DISABLED');
+    expect(zone.disabled).toBeTrue();
   });
 
    // test unitaire #20
@@ -168,7 +168,7 @@ describe('ProblemeComponent', () => {
     zone.setValue('');
     zone01.setValue('a@b.com');
     let groupe = component.problemeForm.get('courrielGroup');
-    expect(groupe.status).toEqual('INVALID');
+    expect(groupe.invalid).toBeTrue();
   });
 
   // test unitaire #26
@@ -180,7 +180,7 @@ describe('ProblemeComponent', () => {
     zone.setValue('a@b.com');
     zone01.setValue('');
     let groupe = component.problemeForm.get('courrielGroup');
-    expect(groupe.status).toEqual('INVALID');
+    expect(groupe.invalid).toBeTrue();
   });
 
   // test unitaire #27
@@ -192,7 +192,7 @@ describe('ProblemeComponent', () => {
     zone.setValue('test@test.com');
     zone01.setValue('essai@essai.ca');
     let groupe = component.problemeForm.get('courrielGroup');
-    expect(groupe.status).toEqual('INVALID');
+    expect(groupe.invalid).toBeTrue();
   });
 
   // test unitaire #28
@@ -204,7 +204,7 @@ describe('ProblemeComponent', () => {
     zone.setValue('bon@test.com');
     zone01.setValue('bon@test.com');
     let groupe = component.problemeForm.get('courrielGroup');
-    expect(groupe.status).toEqual('VALID');
+    expect(groupe.valid).toBeTrue();
   });
 
   // test unitaire #29

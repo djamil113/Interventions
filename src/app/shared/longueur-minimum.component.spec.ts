@@ -10,7 +10,7 @@ describe('Zones Validator', () => {
         // Faire l'appel du validateur
         let result = validator(control as AbstractControl);
         // Comparer le résultat OBTENU avec le résultat PRÉVU
-        expect(result['nbreCaracteresInsuffisants']).toBe(true);
+        expect(result['nbreCaracteresInsuffisants']).toBeTrue();
     });
 
     // test unitaire #8
@@ -43,7 +43,7 @@ describe('Zones Validator', () => {
         // Faire l'appel du validateur
         let result = validator(control as AbstractControl);
         // Comparer le résultat OBTENU avec le résultat PRÉVU
-        expect(result['nbreCaracteresInsuffisants']).toBe(true);
+        expect(result['nbreCaracteresInsuffisants']).toBeTrue();
     });
 
     // test unitaire #11
@@ -54,7 +54,7 @@ describe('Zones Validator', () => {
         // Faire l'appel du validateur
         let result = validator(control as AbstractControl);
         // Comparer le résultat OBTENU avec le résultat PRÉVU
-        expect(result['nbreCaracteresInsuffisants']).toBe(true);
+        expect(result['nbreCaracteresInsuffisants']).toBeTrue();
     });
 
     // test unitaire #12
@@ -87,6 +87,6 @@ describe('Zones Validator', () => {
         // Faire l'appel du validateur
         let result = validator(control as AbstractControl);
         // Comparer le résultat OBTENU avec le résultat PRÉVU
-        expect(result['nbreCaracteresInsuffisants']).toBe(true);
+        expect(result['nbreCaracteresInsuffisants']).toBeTrue();
     });
 });
