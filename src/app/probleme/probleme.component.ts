@@ -28,12 +28,16 @@ export class ProblemeComponent implements OnInit {
           courriel: [{value: '', disabled: true}],
           confirmerCourriel: [{value: '', disabled: true}],
         }),
-        telephone: [{value: '', disabled: true}]
+        telephone: [{value: '', disabled: true}],
+        noNotifications: [{value: 'aucune', disabled: false}]
     });
 
     this.categories.obtenirCategories()
     .subscribe(cat => this.categoriesProblemes = cat,
                error => this.errorMessage = <any>error);  
+
+    this.problemeForm.get('noNotifications').valueChanges
+    .subscribe(value => this.appliquerNotifications(value));
   }
 
   appliquerNotifications(typeNotifications: string): void {
