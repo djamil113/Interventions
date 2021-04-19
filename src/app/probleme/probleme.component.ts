@@ -22,14 +22,14 @@ export class ProblemeComponent implements OnInit {
         probleme: ['', [ZonesValidator.longueurMinimum(3), Validators.required]],
         nom: ['', [Validators.maxLength(50), Validators.required]],
         typeCategorie: ['', [Validators.required]],
-
-        noTypeProbleme: ['', Validators.required],
         courrielGroup: this.fb.group({
           courriel: [{value: '', disabled: true}],
           confirmerCourriel: [{value: '', disabled: true}],
         }),
         telephone: [{value: '', disabled: true}],
-        noNotifications: [{value: 'aucune', disabled: false}]
+        noNotifications: [{value: 'aucune', disabled: false}],
+        descriptionProbleme: ['', [Validators.required, Validators.minLength(5)]], noUnite: '',
+        dateProbleme: {value: Date(), disabled: true}
     });
 
     this.categories.obtenirCategories()
