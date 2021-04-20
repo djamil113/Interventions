@@ -28,7 +28,8 @@ export class ProblemeComponent implements OnInit {
         }),
         telephone: [{value: '', disabled: true}],
         noNotifications: [{value: 'aucune', disabled: false}],
-        descriptionProbleme: ['', [Validators.required, Validators.minLength(5)]], noUnite: '',
+        descriptionProbleme: ['', [Validators.required, Validators.minLength(5)]], 
+        noUnite: '',
         dateProbleme: {value: Date(), disabled: true}
     });
 
@@ -36,8 +37,8 @@ export class ProblemeComponent implements OnInit {
     .subscribe(cat => this.categoriesProblemes = cat,
                error => this.errorMessage = <any>error);  
 
-    this.problemeForm.get('noNotifications').valueChanges
-    .subscribe(value => this.appliquerNotifications(value));
+     this.problemeForm.get('noNotifications').valueChanges
+     .subscribe(value => this.appliquerNotifications(value));
   }
 
   appliquerNotifications(typeNotifications: string): void {

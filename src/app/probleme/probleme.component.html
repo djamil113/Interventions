@@ -11,11 +11,11 @@
         [formGroup]="problemeForm">
         <!-- Zone de texte PRENOM -->
             <div class="form-group row">
-              <label for="problemeId" class="col-md-2 col-form-label text-right">Prénom :
+              <label for="prenomId" class="col-md-2 col-form-label text-right">Prénom :
               </label>
               <div class="col-md-10">
                 <input class="form-control" 
-                id="problemeId" 
+                id="prenomId" 
                 type="text"
                 placeholder="Votre prénom ici (obligatoire)"
                 formControlName="probleme" 
@@ -44,13 +44,13 @@
                 </span>
               </div>
             </div>
-
+            <!-- Zone de texte NOM -->
             <div class="form-group row">
-              <label for="problemeId" class="col-md-2 col-form-label text-right">Nom :
+              <label for="nomId" class="col-md-2 col-form-label text-right">Nom :
               </label>
               <div class="col-md-10">
                 <input class="form-control" 
-                id="problemeId" 
+                id="nomId" 
                 type="text"
                 placeholder="Votre nom ici (obligatoire)"
                 formControlName="nom" 
@@ -79,12 +79,12 @@
                 </span>
               </div>
             </div>
-
+            <!-- Zone de texte TYPE DE PROBLEMES -->
             <div class="form-group row">
-              <label for="noCategorieId" class="col-md-2 col-form-label text-right">Type de problème :</label>
+              <label for="typeProblemeId" class="col-md-2 col-form-label text-right">Type de problème :</label>
               <div class="col-sm-10">
                 <select class="form-control"
-                  id="noCategorieId"
+                  id="typeProblemeId"
                   type="text"
                   placeholder="Sélectionner un type de problème (obligatoire)..."
                   [ngClass]="{'is-invalid': (problemeForm.get('typeCategorie').touched ||
@@ -249,81 +249,43 @@
               </div> 
               
               <!-- Zone de texte # Unité  -->        
-
                 <div class="form-group row">          
-
                   <label for="noUniteId" class="col-md-2 col-form-label text-right"># Unité :</label>
-
                   <div class="col-md-10">
-
                     <input class="form-control" 
-
                     id="noUniteId" 
-
                     type="text" 
-
                     placeholder="Numéro de l'unité si connu" 
-
                     formControlName="noUnite" />
-
                   </div>
-
                 </div>      
 
                 <!-- Zone de texte DESCRIPTION DU PROBLÈME  -->        
-
                 <div class="form-group row">          
-
                   <label for="descriptionProblemeId" class="col-md-2 col-form-label text-right">Description du problème :</label>
-
                   <div class="col-md-10">
-
                     <textarea class="form-control" 
-
                     rows="3"              
-
                     id="descriptionProblemeId" 
-
                     type="text" 
-
                     placeholder="Décrire le propblème ici (obligatoire)" 
-
                     formControlName="descriptionProbleme"            
-
                     [ngClass]="{'is-valid': (problemeForm.get('descriptionProbleme').touched || problemeForm.get('descriptionProbleme').dirty) &&
-
                           problemeForm.get('descriptionProbleme').valid, 
-
                           'is-invalid': (problemeForm.get('descriptionProbleme').touched || problemeForm.get('descriptionProbleme').dirty) &&
-
                           !problemeForm.get('descriptionProbleme').valid }"></textarea>
-
                     <span class="form-text" *ngIf="(problemeForm.get('descriptionProbleme').touched || 
-
                           problemeForm.get('descriptionProbleme').dirty) && 
-
                           problemeForm.get('descriptionProbleme').errors">
-
-
-
                           <span *ngIf="problemeForm.get('descriptionProbleme').errors.required">
-
                               <small  class="text-muted">
-
                                   N'oubliez pas de décrire le plus clairement possible le problème rencontré.
-
                               </small>
-
                           </span> 
-
                           <span *ngIf="problemeForm.get('descriptionProbleme').errors.minlength">
-
                             <small  class="text-muted">
-
                               La description du problème doit comporter plus de 5 caractères.
-
                             </small> 
-
                           </span>       
                     </span>
                   </div>
@@ -348,7 +310,7 @@
                             <button class="btn btn-primary"
                                 type="submit"                              
                                 [disabled]="!problemeForm.valid">
-                                &nbsp;&nbsp;Sauvegarder
+                                Sauvegarder
                             </button>
                         </span>
                     </div>
