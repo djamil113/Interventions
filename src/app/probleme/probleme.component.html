@@ -18,25 +18,25 @@
                 id="prenomId" 
                 type="text"
                 placeholder="Votre prénom ici (obligatoire)"
-                formControlName="probleme" 
-                [ngClass]="{'is-invalid': (problemeForm.get('probleme').touched ||
-                problemeForm.get('probleme').dirty) &&
-                !problemeForm.get('probleme').valid,
-                'is-valid': (problemeForm.get('probleme').touched ||
-                problemeForm.get('probleme').dirty) &&
-                problemeForm.get('probleme').valid }"
+                formControlName="prenom" 
+                [ngClass]="{'is-invalid': (problemeForm.get('prenom').touched ||
+                problemeForm.get('prenom').dirty) &&
+                !problemeForm.get('prenom').valid,
+                'is-valid': (problemeForm.get('prenom').touched ||
+                problemeForm.get('prenom').dirty) &&
+                problemeForm.get('prenom').valid }"
                 />
-                <span class="form-text" *ngIf="(problemeForm.get('probleme').touched || 
-                    problemeForm.get('probleme').dirty) &&
-                    problemeForm.get('probleme').errors">
+                <span class="form-text" *ngIf="(problemeForm.get('prenom').touched || 
+                    problemeForm.get('prenom').dirty) &&
+                    problemeForm.get('prenom').errors">
 
-                    <span *ngIf="problemeForm.get('probleme').errors.required">
+                    <span *ngIf="problemeForm.get('prenom').errors.required">
                       <small class="text-muted">
                           Merci de saisir votre prénom.
                        </small>
                     </span>
 
-                    <span *ngIf="problemeForm.get('probleme').errors.nbreCaracteresInsuffisants">
+                    <span *ngIf="problemeForm.get('prenom').errors.nbreCaracteresInsuffisants">
                         <small class="text-muted">
                             Veuillez entrer plus de caractères.
                          </small>
