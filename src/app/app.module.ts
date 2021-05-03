@@ -7,7 +7,6 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ProblemeComponent } from './probleme/probleme.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { CategorieData } from './probleme/categorie-data';
 
 @NgModule({
@@ -20,8 +19,8 @@ import { CategorieData } from './probleme/categorie-data';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule .forRoot(CategorieData, { delay: 1000 })
+    HttpClientModule
+    //HttpClientInMemoryWebApiModule .forRoot(CategorieData, { delay: 1000 })
   ],
   providers: [],
   bootstrap: [AppComponent]

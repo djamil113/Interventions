@@ -9,7 +9,7 @@ import { ITypeCategorie } from './categorie';
 })
 export class CategorieService {
 
-  private baseUrl = 'api/categories';
+  private baseUrl = 'https://localhost:5001/Intervention';
 
   constructor(private http: HttpClient) { }
 
